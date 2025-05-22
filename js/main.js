@@ -323,58 +323,95 @@
     };
 
 
-   /* Contact Form
-    * ------------------------------------------------------ */
-    var clContactForm = function() {
+//    /* Contact Form
+//     * ------------------------------------------------------ */
+//     var clContactForm = function() {
         
-        /* local validation */
-        $('#contactForm').validate({
+//         /* local validation */
+//         $('#contactForm').validate({
         
-            /* submit via ajax */
-            submitHandler: function(form) {
+//             /* submit via ajax */
+//             submitHandler: function(form) {
     
-                var sLoader = $('.submit-loader');
+//                 var sLoader = $('.submit-loader');
     
-                $.ajax({
+//                 $.ajax({
     
-                    type: "POST",
-                    url: "inc/sendEmail.php",
-                    data: $(form).serialize(),
-                    beforeSend: function() { 
+//                     type: "POST",
+//                     url: "inc/sendEmail.php",
+//                     data: $(form).serialize(),
+//                     beforeSend: function() { 
     
-                        sLoader.slideDown("slow");
+//                         sLoader.slideDown("slow");
     
-                    },
-                    success: function(msg) {
+//                     },
+//                     success: function(msg) {
     
-                        // Message was sent
-                        if (msg == 'OK') {
-                            sLoader.slideUp("slow"); 
-                            $('.message-warning').fadeOut();
-                            $('#contactForm').fadeOut();
-                            $('.message-success').fadeIn();
-                        }
-                        // There was an error
-                        else {
-                            sLoader.slideUp("slow"); 
-                            $('.message-warning').html(msg);
-                            $('.message-warning').slideDown("slow");
-                        }
+//                         // Message was sent
+//                         if (msg == 'OK') {
+//                             sLoader.slideUp("slow"); 
+//                             $('.message-warning').fadeOut();
+//                             $('#contactForm').fadeOut();
+//                             $('.message-success').fadeIn();
+//                         }
+//                         // There was an error
+//                         else {
+//                             sLoader.slideUp("slow"); 
+//                             $('.message-warning').html(msg);
+//                             $('.message-warning').slideDown("slow");
+//                         }
     
-                    },
-                    error: function() {
+//                     },
+//                     error: function() {
     
-                        sLoader.slideUp("slow"); 
-                        $('.message-warning').html("Something went wrong. Please try again.");
-                        $('.message-warning').slideDown("slow");
+//                         sLoader.slideUp("slow"); 
+//                         $('.message-warning').html("Something went wrong. Please try again.");
+//                         $('.message-warning').slideDown("slow");
     
-                    }
+//                     }
     
-                });
-            }
+//                 });
+//             }
     
-        });
-    };
+//         });
+//     };
+
+
+    var clContactForm = function () {
+    $('#contactForm').validate({
+        submitHandler: function (form) {
+            var sLoader = $('.submit-loader');
+
+            var formData = {
+                name: $('#contactForm input[name="name"]').val(),
+                email: $('#contactForm input[name="email"]').val(),
+                subject: $('#contactForm input[name="subject"]').val(),
+                message: $('#contactForm textarea[name="message"]').val()
+            };
+
+            sLoader.slideDown("slow");
+
+            fetch('https://script.google.com/macros/s/AKfycbxfUOK-DbGZcs73KraIOyDSU8Qvy7Gc0bmSbHq4Zn6inDrW8kvGDLNc4_iLYHhutoGR3Q/exec', {
+                method: 'POST',
+                mode: 'no-cors', // Required for Google Apps Script
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            }).then(function () {
+                sLoader.slideUp("slow");
+                $('.message-warning').fadeOut();
+                $('#contactForm').fadeOut();
+                $('.message-success').fadeIn();
+            }).catch(function () {
+                sLoader.slideUp("slow");
+                $('.message-warning').html("Something went wrong. Please try again.");
+                $('.message-warning').slideDown("slow");
+            });
+        }
+    });
+};
+
 
 
    /* Animate On Scroll
