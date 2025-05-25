@@ -448,7 +448,7 @@
     content: "\e98c";
 }
 .icon-paint-brush:before {
-    content: "\e98d";
+    content: "\e968";
 }
 .icon-paper-plane:before {
     content: "\e98e";
@@ -716,5 +716,68 @@
 }
 .icon-zoom-out:before {
     content: "\e9e6";
+}
+
+
+/* Custom Icons -- Neuralytix*/
+.icon-analytics:before {
+    content: "\e90d";
+}
+
+.icon-etl:before {
+    content: "\e96e";
+}
+
+.icon-dgq:before {
+    content: "\e9af";
+}
+
+.icon-dba:before {
+    content: "\e964";
+}
+
+.icon-dsc:before {
+    content: "\e9a3";
+}
+
+.icon-chat-bot-dev:before {
+    content: "\e920";
+}
+
+.icon-chat-bot-dep:before {
+    content: "\e9b7";
+}
+
+
+.icon-chat-bot-ops:before {
+    content: "\e9b8";
+}
+
+.icon-setting:before {
+    content: "\e9ac";
+}
+.icon-ml:before {
+    content: "\e9b0";
+}
+.icon-mlops:before {
+    content: "\e9b3";
+}
+
+.icon-bi-d:before {
+    content: "\e994";
+}
+
+
+.icon-AI1:before {
+    content: "\e9c4";
+}
+
+.icon-de:before {
+    content: "\e92a";
+}
+
+
+.icon-test:before {
+    content: "\e92a";
 }
 

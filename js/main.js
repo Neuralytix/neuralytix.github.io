@@ -433,10 +433,13 @@
    /* AjaxChimp
     * ------------------------------------------------------ */
     var clAjaxChimp = function() {
+        var cfg = {
+          mailChimpURL: "https://github.us22.list-manage.com/subscribe/post?u=bc0952a62ef1d84090edd5f3e&amp;id=82d1765ab1&amp;f_id=009fc2e1f0"
+                };
         
         $('#mc-form').ajaxChimp({
-            language: 'es',
-            url: cfg.mailChimpURL
+            language: 'en',
+            url: cfg.mailChimpURL 
         });
 
         // Mailchimp translation
