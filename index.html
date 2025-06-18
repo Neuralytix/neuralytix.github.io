@@ -500,7 +500,7 @@ assets-critical for regulatory alignment and decision reliability.
                             </a>
     
                             <div class="item-folio__caption">
-                                <p>Glimpse of a #DataEngineering project built for one of the top clients.</p>
+                                <p>Glimpse of a Data Engineering project built for one of the top clients.</p>
                             </div>
     
                         </div>
@@ -913,6 +913,16 @@ assets-critical for regulatory alignment and decision reliability.
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+  document.querySelectorAll('.item-folio__project-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Prevent the lightbox from hijacking the click
+      e.stopPropagation();
+      // Allow default link behavior
+    });
+  });
+</script>
 
 </body>
 
